@@ -23,21 +23,24 @@ const PORT = process.env.PORT || 4321;
 const CHROME = process.env.CHROME || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const VOICE = process.env.VOICE || 'Samantha';
 const W = 1440, H = 810, DEBUG_PORT = 9333;
+const SKIP_CAPTURE = process.argv.includes('--assemble'); // reuse existing frames, just rebuild audio+video
 const log = (...a) => console.log(...a);
 
 fs.mkdirSync(REEL, { recursive: true });
 try { fs.unlinkSync(path.join(ROOT, '.data', 'memory.json')); } catch (_) {}
 
 const BEATS = [
-  { frame: '00-title.png', text: 'Ambigua. An agent that turns ambiguous workplace asks into resolved, grounded action.' },
-  { frame: '01-intro.png', text: 'Here is a real team workspace. People do not type specs — they type the numbers for the thing we talked about yesterday.' },
-  { frame: '02-clarify.png', text: 'Instead of guessing, Ambigua reads the channel, the files, yesterday’s messages and the calendar. Then it asks exactly one question — and shows why.' },
-  { frame: '03-resolved.png', text: 'One tap, and it commits — returning the right artifact, with its sources.' },
-  { frame: '04-learned.png', text: 'Confirm once, and Team Memory remembers. Next time it just knows, and the value meter tracks the time saved.' },
-  { frame: '05-engresolved.png', text: 'When the context is strong, it does not even ask. Did we ship it? Yes — version two point three one is live.' },
-  { frame: '06-scan.png', text: 'It also scans a channel and flags ambiguous asks before anyone wastes a day on the wrong work.' },
-  { frame: '07-livedata.png', text: 'And it runs on live data and a live model — not mock data.' },
-  { frame: '08-end.png', text: 'Ambigua. The environment is the disambiguation engine. Built for the Best Use of Ambiguous AI track.' }
+  { frame: '00-title.png', text: 'Ambigua turns ambiguous workplace asks into resolved, grounded action — using the context of where your team already works.' },
+  { frame: '01-intro.png', text: 'This is a real team workspace. People do not type specifications — they type things like, pull the numbers for the thing we talked about yesterday.' },
+  { frame: '02-clarify.png', text: 'Most agents guess. Ambigua reads the channel, the files, yesterday’s messages and the calendar, then asks exactly one question — and shows the evidence behind every interpretation it ranked.' },
+  { frame: '03-resolved.png', text: 'One tap, and it commits: the right artifact, with the sources that justify it. No wrong starts, no guesswork.' },
+  { frame: '04-learned.png', text: 'Confirm once, and Team Memory remembers it for that channel. Next time it just knows — so it asks fewer questions the longer your team uses it, and the value meter tracks the time saved.' },
+  { frame: '05-engresolved.png', text: 'And when the context is strong, it does not ask at all. Did we ship it? Yes — version two point three one is live, canary passed.' },
+  { frame: '06-scan.png', text: 'It also watches a channel and flags ambiguous asks before anyone spends a day on the wrong work — catching the ambiguity tax before it is paid.' },
+  { frame: '07-livedata.png', text: 'All of this runs on a live model and live data — not mock data. The workspace can be swapped for a real folder or a Slack export.' },
+  { frame: '09-architecture.png', text: 'Under the hood: the ask enters a context layer, a ranking engine scores interpretations by token match, time window and channel affinity, and a confidence gate either resolves with sources or asks one question — while your confirmations feed back into Team Memory.' },
+  { frame: '10-valuemap.png', text: 'The value is simple. Fewer wrong-work cycles, fewer interruptions, faster decisions, and institutional memory that compounds. It is built for cross-functional teams, for ops and support, and for any platform that needs a disambiguation layer.' },
+  { frame: '08-end.png', text: 'Ambigua. The environment is the disambiguation engine. Zero-dependency Node, live model, live data. Open on GitHub. Built for the Best Use of Ambiguous AI track.' }
 ];
 
 /* ── minimal CDP client over Node's built-in WebSocket ── */
@@ -65,6 +68,7 @@ function connect(wsUrl) {
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function main() {
+  if (SKIP_CAPTURE) { log('· --assemble: reusing existing frames'); return; }
   // 0. health check
   try {
     const r = await fetch(`http://localhost:${PORT}/api/health`);
@@ -179,6 +183,17 @@ async function main() {
 }
 
 /* ── narration + ffmpeg assembly ── */
+function ensureDiagramFrames() {
+  const pairs = [
+    ['architecture.png', '09-architecture.png'],
+    ['value-map.png', '10-valuemap.png']
+  ];
+  for (const [src, dst] of pairs) {
+    const from = path.join(ROOT, 'docs', 'assets', src);
+    const to = path.join(REEL, dst);
+    if (fs.existsSync(from) && !fs.existsSync(to)) { fs.copyFileSync(from, to); log('· copied', src, '→', dst); }
+  }
+}
 function run(cmd, args, opts = {}) {
   return execFileSync(cmd, args, Object.assign({ stdio: 'ignore' }, opts));
 }
@@ -222,6 +237,7 @@ function assemble() {
 
 (async () => {
   await main();
+  ensureDiagramFrames();
   assemble();
   const size = (fs.statSync(OUT).size / 1024 / 1024).toFixed(1);
   let dur = 0;

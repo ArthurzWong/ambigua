@@ -28,10 +28,10 @@ https://github.com/ArthurzWong/ambigua
 
 ## Two-minute demonstration video
 
-- Local file: `docs/assets/demo.mp4` (1440×810, narrated, ~1 min)
+- Local file: `docs/assets/demo.mp4` (1440×810, narrated, ~2 min)
 - Hosted URL: **[ upload to YouTube/Loom/Drive and paste the link here ]**
 
-The video shows: an ambiguous ask in `#growth` → the agent asking one question with evidence → confirming → a resolved card with sources → Team Memory + value meter → a strong-context ask that resolves without asking → proactive scan → switching to live data.
+The video shows: an ambiguous ask in `#growth` → the agent asking one question with evidence → confirming → a resolved card with sources → Team Memory + value meter → a strong-context ask that resolves without asking → proactive scan → switching to live data → the architecture and the value map.
 
 ## Social media post
 

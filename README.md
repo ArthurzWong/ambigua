@@ -9,7 +9,7 @@ Track: **Best Use of Ambiguous AI**. Built as a one-day-viable hackathon starter
 
 ## Demo
 
-▶️ Narrated walkthrough (~1 min): [`docs/assets/demo.mp4`](docs/assets/demo.mp4) · poster: [`docs/assets/demo-poster.png`](docs/assets/demo-poster.png)
+▶️ Narrated walkthrough (~2 min): [`docs/assets/demo.mp4`](docs/assets/demo.mp4) · poster: [`docs/assets/demo-poster.png`](docs/assets/demo-poster.png)
 
 Submission kit: [`docs/submission.md`](docs/submission.md) (portal copy) · [`docs/social-post.md`](docs/social-post.md) · [`docs/demo-script.md`](docs/demo-script.md).
 

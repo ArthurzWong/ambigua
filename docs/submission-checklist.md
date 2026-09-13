@@ -7,7 +7,7 @@ Status of every required item. Full portal copy lives in [`submission.md`](submi
 - [x] **Project title** — *Ambigua — resolve ambiguous asks with workspace context*
 - [x] **Written description** — see [`submission.md`](submission.md)
 - [x] **Public GitHub repository** — https://github.com/ArthurzWong/ambigua (public, `main`)
-- [x] **Two-minute demonstration video** — recorded → `docs/assets/demo.mp4` (~1 min, narrated)
+- [x] **Two-minute demonstration video** — recorded → `docs/assets/demo.mp4` (~2 min, narrated)
   - [ ] Host it publicly (YouTube/Loom/Drive) and paste the URL into the portal
 - [x] **Social media post** — finalized in [`social-post.md`](social-post.md)
   - [ ] Publish it, tagging the event partners
