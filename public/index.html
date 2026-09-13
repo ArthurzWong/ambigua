@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ambigua — turn ambiguous asks into resolved actions</title>
+<link rel="stylesheet" href="/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%237c5cff'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='sans-serif'%3EA%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip" href="#input">Skip to the ask box</a>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26"><circle cx="16" cy="16" r="15" fill="url(#g)"/><path d="M16 7l7 18h-4l-1.4-4H12.4L11 25H7L14 7h2zm-2.6 10h5.2L16 10.8 13.4 17z" fill="#fff"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs></svg>
+      </span>
+      <div class="brand-txt">
+        <strong>Ambigua</strong>
+        <span>Best Use of Ambiguous AI</span>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span class="metric" id="metricPill" title="Estimated time saved by resolving ambiguities">≈0 min saved</span>
+      <label class="mode">
+        <span>Engine</span>
+        <select id="mode" aria-label="Reasoning engine">
+          <option value="auto">Auto</option>
+          <option value="offline">Offline (heuristic)</option>
+          <option value="live" selected>Live LLM</option>
+        </select>
+      </label>
+      <span class="badge" id="engineBadge" title="Active reasoning engine">heuristic</span>
+      <span class="dot" id="healthDot" title="server status"></span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- ── left: workspace ── -->
+    <aside class="sidebar" aria-label="Workspace">
+      <div class="ws-head">
+        <div class="ws-name" id="wsName">Workspace</div>
+        <div class="ws-sub" id="wsSub">connecting…</div>
+      </div>
+      <nav class="channels" id="channels" aria-label="Channels"></nav>
+      <div class="people">
+        <div class="side-title">People</div>
+        <ul id="people"></ul>
+      </div>
+      <div class="memory">
+        <div class="side-title">Team memory</div>
+        <ul id="memoryList" class="ctx-list"></ul>
+      </div>
+      <div class="datasource">
+        <div class="side-title">Data source <span class="learned-badge" id="dsCount">—</span></div>
+        <div class="ds-row">
+          <button class="btn-mini" id="dsSample" type="button">Sample</button>
+          <button class="btn-mini" id="dsReload" type="button">Reload</button>
+        </div>
+        <input id="dsPath" class="ds-input" placeholder="dir:/path or json:/file" aria-label="Live data source path" />
+        <button class="btn-mini ds-use" id="dsUse" type="button">Load live source</button>
+        <div class="s" id="dsInfo">Using sample data</div>
+      </div>
+      <div class="side-foot">
+        <p class="tip">The agent's answers change with the channel you're in — that's the point.</p>
+      </div>
+    </aside>
+
+    <!-- ── center: thread ── -->
+    <section class="thread" aria-label="Conversation">
+      <div class="thread-head">
+        <div>
+          <h2 id="channelTitle">#growth</h2>
+          <p id="channelTopic">—</p>
+        </div>
+        <div class="thread-actions">
+          <button class="ghost" id="scanBtn" type="button" title="Find ambiguous asks in this channel">Scan channel</button>
+          <button class="ghost" id="resetBtn" type="button">Reset thread</button>
+        </div>
+      </div>
+
+      <div class="scan-panel" id="scanPanel" hidden></div>
+
+      <div class="msgs" id="msgs" role="log" aria-live="polite"></div>
+
+      <div class="composer-wrap">
+        <div class="chips" id="presets" aria-label="Demo prompts"></div>
+        <form class="composer" id="composer" autocomplete="off">
+          <label class="sr-only" for="input">Ask something</label>
+          <input id="input" name="input" type="text" placeholder="Ask something ambiguous…" maxlength="240" />
+          <button id="sendBtn" type="submit">Ask</button>
+        </form>
+        <p class="hint">Try a prompt chip above, or type your own vague ask. Press ask — the agent resolves it against workspace context.</p>
+      </div>
+    </section>
+
+    <!-- ── right: what the agent sees ── -->
+    <aside class="context" aria-label="Workspace context">
+      <div class="ctx-head">
+        <h3>Context in view</h3>
+        <p>Everything Ambigua is allowed to reason over.</p>
+      </div>
+      <section class="ctx-sec">
+        <div class="side-title">Files</div>
+        <ul id="ctxFiles" class="ctx-list"></ul>
+      </section>
+      <section class="ctx-sec">
+        <div class="side-title">Recent messages</div>
+        <ul id="ctxMsgs" class="ctx-list"></ul>
+      </section>
+      <section class="ctx-sec">
+        <div class="side-title">Calendar</div>
+        <ul id="ctxEvents" class="ctx-list"></ul>
+      </section>
+    </aside>
+  </main>
+
+  <div id="toast" class="toast-wrap" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="/app.js"></script>
+  <script src="/selftest.js"></script>
+</body>
+</html>

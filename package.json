@@ -1,0 +1,19 @@
+{
+  "name": "ambigua",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ambigua — an agent that turns ambiguous workplace asks into resolved, grounded actions. Hackathon starter for the 'Best Use of Ambiguous AI' track.",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "smoke": "node scripts/smoke.js",
+    "uitest": "node scripts/uitest.js",
+    "llmtest": "node scripts/llmtest.js",
+    "mockllm": "node scripts/mock-llm.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
