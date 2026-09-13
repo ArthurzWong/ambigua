@@ -1,43 +1,61 @@
-# Social post draft — Ambigua
+# Social post — Ambigua
 
-Tag the **event partners** (replace `@partner` with the real handles before posting). Keep it to the platform's limits; below are two variants.
-
----
-
-## Short (X / Twitter)
-
-> Built **Ambigua** for the *Best Use of Ambiguous AI* track 🧩
->
-> People don't type specs, they type *"send it to them."* Ambigua lives in your team's channels and resolves the ambiguity from context — then answers, or asks exactly one good question.
->
-> `"the numbers for the thing we talked about yesterday"` → *churn or acquisition?*
->
-> Repo + 2-min demo 👇 @partner @partner @partner
-> #hackathon #AI #agents
+Ready to publish. Replace `@partner` with the real event-partner handles, attach the demo video (`docs/assets/demo.mp4`), and link the repo: **https://github.com/ArthurzWong/ambigua**
 
 ---
 
-## Long (LinkedIn)
+## X / Twitter (short)
 
-> **Most agents break on the first vague sentence. That's the problem we built for.**
+> People don't type specs — they type *"send it to them."*
 >
-> For the *Best Use of Ambiguous AI* track, we built **Ambigua** — an agent that lives where your team already talks and turns ambiguous asks into resolved, grounded actions.
+> Built **Ambigua** for the *Best Use of Ambiguous AI* track: an agent that resolves vague asks from workspace context — then answers, or asks **one** good question.
 >
-> The insight: an agent's environment isn't decoration — it's the disambiguation engine. *Which* channel you asked in, *when* you asked, *what files* are nearby, *who* was involved — those signals are what resolve "the thing we talked about yesterday."
+> Live model + live data. Repo 👇
+> https://github.com/ArthurzWong/ambigua
 >
-> Ambigua tags the ambiguity (referential, temporal, scope), ranks the plausible interpretations with **visible evidence**, and then either **answers with sources** or asks **one** crisp question. When one interpretation clearly wins ("did we ship it?" in #eng-infra), it just answers.
+> @partner @partner @partner
+> #AI #AIAgents #Hackathon
+
+---
+
+## LinkedIn (long)
+
+> **Most agents break on the first vague sentence. We built for exactly that.**
+>
+> For the *Best Use of Ambiguous AI* track we built **Ambigua** — an agent that lives where your team already talks and turns ambiguous asks into resolved, grounded actions.
+>
+> The insight: an agent's environment isn't decoration — it's the disambiguation engine. *Which* channel you asked in, *when*, *what files* are nearby, *who* was involved: those are the signals that resolve *"the thing we talked about yesterday."*
+>
+> Ambigua tags the ambiguity (referential, temporal, scope), ranks the plausible interpretations **with visible evidence**, and then either **answers with sources** or asks **one** crisp question. When context is strong — *"did we ship it?"* — it just answers.
+>
+> What makes it more than a demo:
+> • **Team Memory** — confirm once, and it remembers your team's shorthand (fewer questions over time)
+> • **A value meter** — resolved asks + a time-saved estimate a manager can act on
+> • **Proactive scan** — it flags ambiguous asks already sitting in a channel
+> • **Live model + live data** — runs on a real LLM and real workspace data, not mocks
 >
 > The part we're proudest of: it knows when it doesn't know. Asking the right question beats hallucinating an answer.
 >
-> 🔧 Node + vanilla JS, zero dependencies, optional LLM. Repo and 2-minute demo in the comments.
+> 🔧 Zero-dependency Node + vanilla JS, provider-agnostic LLM layer.
+> Repo + demo video in the comments.
 >
 > Huge thanks to @partner @partner @partner 🚀
-> #AI #Agents #AmbiguousAI #Hackathon
+> #AI #AIAgents #AmbiguousAI #Hackathon #LLM
 
 ---
 
-## Alt one-liners (pick what fits the platform)
+## Alt one-liners (pick per platform)
 
 - "An agent that asks the right question instead of guessing wrong."
-- "Ambiguity isn't an edge case. It's how humans talk."
+- "Ambiguity isn't an edge case — it's how humans talk."
 - "We turned the workspace into the disambiguation engine."
+
+---
+
+## Posting checklist
+
+- [ ] Attach the demo video (`docs/assets/demo.mp4`) or a hosted link
+- [ ] Replace `@partner` with real partner handles
+- [ ] Include the repo link exactly once
+- [ ] Add 3–5 relevant hashtags (done above)
+- [ ] Post from a public account and keep it up through judging

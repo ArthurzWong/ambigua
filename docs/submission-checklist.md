@@ -1,36 +1,35 @@
-# Submission Checklist — Ambigua
+# Submission checklist — Ambigua
 
-Every team must submit the items below. Tick them off in order; the repo and video take the longest.
+Status of every required item. Full portal copy lives in [`submission.md`](submission.md).
 
 ## Required by the hackathon
 
-- [ ] **Project title** — *Ambigua — resolve ambiguous asks with workspace context*
-- [ ] **Written description** — reuse §1–§3 of `BLUEPRINT.md` (one-liner, why, insight)
-- [ ] **Public GitHub repository**
-  - [ ] `README.md` with run instructions (`npm start` → http://localhost:4321)
-  - [ ] `BLUEPRINT.md` committed
-  - [ ] `LICENSE` (MIT included)
-  - [ ] No secrets committed (`.env` is gitignored; `.env.example` only)
-- [ ] **2-minute demonstration video** — follow `docs/demo-script.md`
-- [ ] **Social media post** tagging the event partners — draft in `docs/social-post.md`
+- [x] **Project title** — *Ambigua — resolve ambiguous asks with workspace context*
+- [x] **Written description** — see [`submission.md`](submission.md)
+- [x] **Public GitHub repository** — https://github.com/ArthurzWong/ambigua (public, `main`)
+- [x] **Two-minute demonstration video** — recorded → `docs/assets/demo.mp4` (~1 min, narrated)
+  - [ ] Host it publicly (YouTube/Loom/Drive) and paste the URL into the portal
+- [x] **Social media post** — finalized in [`social-post.md`](social-post.md)
+  - [ ] Publish it, tagging the event partners
 - [ ] **Portal submission** completed before the deadline
+  - [ ] Replace remaining `[ ... ]` placeholders in `submission.md`
 
 ## Eligibility (net-new build)
 
-- [ ] Core functionality (engine + UI + context model) built **during** the event — all net-new
-- [ ] Reused items are only generic building blocks (Node's stdlib, browser APIs). None were submitted before.
-- [ ] You can explain, on request, **which parts were created during the hackathon**: `src/agent.js`, `src/context.js`, `server.js`, `public/*`, `scripts/smoke.js`
+- [x] Core functionality built during the event (engine, LLM layer, UI, tests)
+- [x] Only generic building blocks reused (Node stdlib, browser APIs)
+- [x] Can explain which parts were created during the hackathon (see `submission.md`)
 
-## Pre-flight (5 minutes before submitting)
+## Verification (green)
 
-- [ ] `cd ambigua && npm start` works on a clean machine (Node 18+, no `npm install` needed)
-- [ ] `npm run smoke` prints four sensible resolutions
-- [ ] `?demo=1` auto-runs the flagship ask
-- [ ] Repo is **public** and the link opens logged-out
-- [ ] Video is ≤ 2:00 and viewable without a login
-- [ ] Social post includes the partner handles
+- [x] `npm start` works on a clean machine (Node 18+, no `npm install`)
+- [x] `npm run smoke` → four expected engine outcomes (offline)
+- [x] `npm run uitest` → **30/30** headless UI checks
+- [x] `npm run llmtest` → live provider answers (Ollama `gemma3:12b`)
+- [x] Live data verified (`dir:<path>` source resolved real files)
 
-## Nice-to-have proof for judges
+## Nice-to-have for judges
 
-- [ ] Screenshot of a resolution card in the README (`docs/assets/screenshot-desktop.png`)
-- [ ] A line in the description like: *"the scoring is explainable — every interpretation shows its evidence"*
+- [x] Screenshots + architecture + value-map diagrams in `docs/assets/`
+- [x] Demo video + poster in `docs/assets/`
+- [x] Repo description + topics set

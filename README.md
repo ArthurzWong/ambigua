@@ -7,6 +7,12 @@ Track: **Best Use of Ambiguous AI**. Built as a one-day-viable hackathon starter
 > "hey can you pull the numbers for the thing we talked about yesterday?"
 > → Ambigua reads the channel, the files, yesterday's messages and the calendar, then either **answers**, asks **one** crisp question, or — because your team already taught it — just knows.
 
+## Demo
+
+▶️ Narrated walkthrough (~1 min): [`docs/assets/demo.mp4`](docs/assets/demo.mp4) · poster: [`docs/assets/demo-poster.png`](docs/assets/demo-poster.png)
+
+Submission kit: [`docs/submission.md`](docs/submission.md) (portal copy) · [`docs/social-post.md`](docs/social-post.md) · [`docs/demo-script.md`](docs/demo-script.md).
+
 ---
 
 ## Why this exists
